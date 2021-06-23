@@ -7,14 +7,25 @@
         <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         crossorigin="anonymous">
-        <link rel='stylesheet' href='/newapp/public/stylesheets/style.css' />
+        <link rel='stylesheet' href='/stylesheets/style.css' />
     </head>
     <body class="container">
         <header>
             <h1><%= title %> </h1>
         </header>
         <div role="main">
-            <p><%- content %> </p>
+            <% if(content!= null){ %>
+            <ol>
+                <% for(let i in content){ %>
+                <% let obj =content[i]; %>
+                <li>
+                    <a href="<%= obj.link %> ">
+                        <%= obj.title %>
+                    </a>
+                </li>
+                <% } %> 
+            </ol> 
+            <% } %> 
         </div>
     </body>
 </html>
